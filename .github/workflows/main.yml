@@ -1,17 +1,19 @@
- main.yml
- name: Test Action
+name: Test Action  # Name of the workflow
 
- on:
-   push:
-     branches:
-       - main  # or any branch you want to trigger the action
+on:
+  push:
+    branches:
+      - main  # The workflow will be triggered on a push to the main branch.
 
- jobs:
-   test:
-     runs-on: ubuntu-latest
-     steps:
-       - name: Checkout code
-         uses: actions/checkout@v3
+jobs:
+  test:  # Define the job that will run
+    runs-on: ubuntu-latest  # The job will run on the latest version of Ubuntu.
 
-       - name: 23f1001806@ds.study.iitm.ac.in
-         run: echo "Hello, world!"
+    steps:
+      # Step 1: Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v3  # This action checks out your code so it can be used by subsequent steps.
+
+      # Step 2: Print the message (using an email as the name)
+      - name: 23f1001806@ds.study.iitm.ac.in  # This step's name is the email address you mentioned.
+        run: echo "Hello, world!"  # This command prints "Hello, world!" in the GitHub Actions log.
